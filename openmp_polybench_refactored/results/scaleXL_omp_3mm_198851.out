@@ -1,0 +1,52 @@
+[node056] 3mm EXTRALARGE t=2
+3MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2000, NL=2200, NM=2400)
+Threads: 2 | FLOPS: 4.32e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           2          false    58367.509    58682.525    0.74       1.00       -          PASS
+threads_static       2          true     27780.741    27824.612    1.56       2.10       105.1      PASS
+threads_dynamic      2          true     27569.981    27695.379    1.57       2.12       105.9      PASS
+tiled                2          true     7732.313     7952.227     5.59       7.55       377.4      PASS
+tasks                2          true     22800.396    22820.040    1.89       2.56       128.0      PASS
+CSV exported: results/3mm_EXTRALARGE_20260615_054306.csv
+[node056] 3mm EXTRALARGE t=4
+3MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2000, NL=2200, NM=2400)
+Threads: 4 | FLOPS: 4.32e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    58457.126    58716.247    0.74       1.00       -          PASS
+threads_static       4          true     14066.025    14067.365    3.07       4.16       103.9      PASS
+threads_dynamic      4          true     14155.092    14230.930    3.05       4.13       103.2      PASS
+tiled                4          true     4251.726     4311.234     10.16      13.75      343.7      PASS
+tasks                4          true     11265.075    11267.228    3.83       5.19       129.7      PASS
+CSV exported: results/3mm_EXTRALARGE_20260615_055747.csv
+[node056] 3mm EXTRALARGE t=8
+3MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2000, NL=2200, NM=2400)
+Threads: 8 | FLOPS: 4.32e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    58587.110    58681.302    0.74       1.00       -          PASS
+threads_static       8          true     7716.581     7718.152     5.60       7.59       94.9       PASS
+threads_dynamic      8          true     7965.886     7969.435     5.42       7.35       91.9       PASS
+tiled                8          true     2352.414     2361.672     18.36      24.91      311.3      PASS
+tasks                8          true     6103.803     6170.572     7.08       9.60       120.0      PASS
+CSV exported: results/3mm_EXTRALARGE_20260615_060949.csv
+[node056] 3mm EXTRALARGE t=16
+3MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2000, NL=2200, NM=2400)
+Threads: 16 | FLOPS: 4.32e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    58358.077    58641.519    0.74       1.00       -          PASS
+threads_static       16         true     4141.468     4195.437     10.43      14.09      88.1       PASS
+threads_dynamic      16         true     4224.595     4238.268     10.23      13.81      86.3       PASS
+tiled                16         true     1218.421     1226.153     35.46      47.90      299.4      PASS
+tasks                16         true     3021.026     3142.876     14.30      19.32      120.7      PASS
+CSV exported: results/3mm_EXTRALARGE_20260615_062020.csv

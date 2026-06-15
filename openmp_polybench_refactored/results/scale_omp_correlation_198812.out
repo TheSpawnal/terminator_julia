@@ -1,0 +1,39 @@
+[node067] correlation LARGE t=4
+Correlation Benchmark
+Dataset: LARGE (M=1200, N=1400)
+Threads: 4 | FLOPS: 2.36e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    1833.146     1834.319     1.29       1.00       -          PASS
+threads_static       4          true     828.180      828.870      2.85       2.21       55.3       PASS
+threads_dynamic      4          true     506.198      506.505      4.66       3.62       90.5       PASS
+tiled                4          true     302.682      302.822      7.79       6.06       151.4      PASS
+tasks                4          true     300.603      300.711      7.85       6.10       152.5      PASS
+CSV exported: results/correlation_LARGE_20260615_050429.csv
+[node067] correlation LARGE t=8
+Correlation Benchmark
+Dataset: LARGE (M=1200, N=1400)
+Threads: 8 | FLOPS: 2.36e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    1833.754     1834.754     1.29       1.00       -          PASS
+threads_static       8          true     478.140      478.376      4.93       3.84       47.9       PASS
+threads_dynamic      8          true     284.312      284.579      8.30       6.45       80.6       PASS
+tiled                8          true     171.251      171.309      13.77      10.71      133.8      PASS
+tasks                8          true     167.787      167.813      14.06      10.93      136.6      PASS
+CSV exported: results/correlation_LARGE_20260615_050513.csv
+[node067] correlation LARGE t=16
+Correlation Benchmark
+Dataset: LARGE (M=1200, N=1400)
+Threads: 16 | FLOPS: 2.36e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    1832.675     1833.302     1.29       1.00       -          PASS
+threads_static       16         true     262.876      262.901      8.97       6.97       43.6       PASS
+threads_dynamic      16         true     145.120      145.368      16.25      12.63      78.9       PASS
+tiled                16         true     93.741       93.854       25.16      19.55      122.2      PASS
+tasks                16         true     85.197       85.278       27.69      21.51      134.4      PASS
+CSV exported: results/correlation_LARGE_20260615_050549.csv

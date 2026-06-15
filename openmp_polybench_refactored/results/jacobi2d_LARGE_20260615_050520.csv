@@ -1,0 +1,7 @@
+benchmark,dataset,strategy,threads,is_parallel,min_ms,median_ms,mean_ms,std_ms,gflops,speedup,efficiency_pct,verified,max_error,allocations
+jacobi2d,LARGE,sequential,4,false,2406.6232,2409.2377,2409.0116,0.8536,3.50,1.00,,PASS,0.00e+00,0
+jacobi2d,LARGE,threads_static,4,true,801.1966,803.0274,803.1813,1.4475,10.51,3.00,75.09,PASS,0.00e+00,0
+jacobi2d,LARGE,threads_dynamic,4,true,843.7075,844.5694,853.0052,11.8953,9.98,2.85,71.31,PASS,0.00e+00,0
+jacobi2d,LARGE,tiled,4,true,1675.3221,1679.3318,1680.2810,4.0651,5.03,1.44,35.91,PASS,0.00e+00,0
+jacobi2d,LARGE,simd,4,false,805.1231,825.3748,820.8786,8.5238,10.46,2.99,,PASS,0.00e+00,0
+jacobi2d,LARGE,red_black,4,true,606.2963,608.1223,608.0114,1.0192,13.89,3.97,99.23,PASS,0.00e+00,0

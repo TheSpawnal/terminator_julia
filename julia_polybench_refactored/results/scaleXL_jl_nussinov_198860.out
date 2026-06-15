@@ -1,0 +1,96 @@
+[node045] julia nussinov EXTRALARGE t=2
+======================================================================
+NUSSINOV RNA FOLDING BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 2
+BLAS threads: 1
+CPU threads: 32
+Dataset: EXTRALARGE (n=5500)
+Memory: 115.39 MB
+NOTE: Limited parallelism due to anti-diagonal dependencies
+
+Reference optimal score: 2750
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |  88657.014 |  89179.351 |  89071.966 |     0.31 |     1.00x |   N/A
+simd             | 100983.844 | 101373.810 | 101294.676 |     0.27 |     0.88x |   N/A
+wavefront        |  58595.248 |  59696.105 |  59466.807 |     0.47 |     1.51x |   75.7
+tiled            |  66604.438 |  68178.504 |  67703.211 |     0.42 |     1.33x |   66.6
+------------------------------------------------------------------------------------------
+
+Results exported to: results/nussinov_EXTRALARGE_20260615_055608.csv
+[node045] julia nussinov EXTRALARGE t=4
+======================================================================
+NUSSINOV RNA FOLDING BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 4
+BLAS threads: 1
+CPU threads: 32
+Dataset: EXTRALARGE (n=5500)
+Memory: 115.39 MB
+NOTE: Limited parallelism due to anti-diagonal dependencies
+
+Reference optimal score: 2750
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |  88365.553 |  88804.328 |  88669.389 |     0.31 |     1.00x |   N/A
+simd             | 100001.022 | 100582.357 | 100472.393 |     0.28 |     0.88x |   N/A
+wavefront        |  32077.242 |  32362.270 |  32318.773 |     0.86 |     2.75x |   68.9
+tiled            |  36858.988 |  37837.173 |  37533.445 |     0.75 |     2.40x |   59.9
+------------------------------------------------------------------------------------------
+
+Results exported to: results/nussinov_EXTRALARGE_20260615_062345.csv
+[node045] julia nussinov EXTRALARGE t=8
+======================================================================
+NUSSINOV RNA FOLDING BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 8
+BLAS threads: 1
+CPU threads: 32
+Dataset: EXTRALARGE (n=5500)
+Memory: 115.39 MB
+NOTE: Limited parallelism due to anti-diagonal dependencies
+
+Reference optimal score: 2750
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |  88570.702 |  89141.196 |  88952.892 |     0.31 |     1.00x |   N/A
+simd             | 100297.829 | 100880.825 | 100711.219 |     0.28 |     0.88x |   N/A
+wavefront        |  18982.298 |  19409.263 |  19632.560 |     1.46 |     4.67x |   58.3
+tiled            |  20346.314 |  21324.754 |  22674.230 |     1.36 |     4.35x |   54.4
+------------------------------------------------------------------------------------------
+
+Results exported to: results/nussinov_EXTRALARGE_20260615_064858.csv
+[node045] julia nussinov EXTRALARGE t=16
+======================================================================
+NUSSINOV RNA FOLDING BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 16
+BLAS threads: 1
+CPU threads: 32
+Dataset: EXTRALARGE (n=5500)
+Memory: 115.39 MB
+NOTE: Limited parallelism due to anti-diagonal dependencies
+
+Reference optimal score: 2750
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |  88877.049 |  89160.477 |  89069.642 |     0.31 |     1.00x |   N/A
+simd             | 100752.417 | 100922.992 | 101031.445 |     0.28 |     0.88x |   N/A
+wavefront        |  19732.126 |  25203.743 |  23788.508 |     1.41 |     4.50x |   28.2
+tiled            |  20132.958 |  20524.576 |  22489.688 |     1.38 |     4.41x |   27.6
+------------------------------------------------------------------------------------------
+
+Results exported to: results/nussinov_EXTRALARGE_20260615_071407.csv

@@ -1,0 +1,48 @@
+[node030] jacobi2d LARGE t=4
+Jacobi-2D Benchmark
+Dataset: LARGE (N=1300, TSTEPS=500)
+Threads: 4 | Iterations: 10 | Warmup: 3
+FLOPS: 8.42e+09 | Memory: 12.9 MB (per array)
+NOTE: memory-bound, AI ~0.1 FLOP/byte (bandwidth-limited)
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    2406.623     2409.238     3.50       1.00       -          PASS
+threads_static       4          true     801.197      803.027      10.51      3.00       75.1       PASS
+threads_dynamic      4          true     843.707      844.569      9.98       2.85       71.3       PASS
+tiled                4          true     1675.322     1679.332     5.03       1.44       35.9       PASS
+simd                 4          false    805.123      825.375      10.46      2.99       -          PASS
+red_black            4          true     606.296      608.122      13.89      3.97       99.2       PASS
+CSV exported: results/jacobi2d_LARGE_20260615_050520.csv
+[node030] jacobi2d LARGE t=8
+Jacobi-2D Benchmark
+Dataset: LARGE (N=1300, TSTEPS=500)
+Threads: 8 | Iterations: 10 | Warmup: 3
+FLOPS: 8.42e+09 | Memory: 12.9 MB (per array)
+NOTE: memory-bound, AI ~0.1 FLOP/byte (bandwidth-limited)
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    2272.013     2420.548     3.71       1.00       -          PASS
+threads_static       8          true     723.667      724.850      11.64      3.14       39.2       PASS
+threads_dynamic      8          true     755.102      755.138      11.16      3.01       37.6       PASS
+tiled                8          true     998.697      1018.126     8.44       2.27       28.4       PASS
+simd                 8          false    724.439      725.471      11.63      3.14       -          PASS
+red_black            8          true     341.814      342.127      24.65      6.65       83.1       PASS
+CSV exported: results/jacobi2d_LARGE_20260615_050648.csv
+[node030] jacobi2d LARGE t=16
+Jacobi-2D Benchmark
+Dataset: LARGE (N=1300, TSTEPS=500)
+Threads: 16 | Iterations: 10 | Warmup: 3
+FLOPS: 8.42e+09 | Memory: 12.9 MB (per array)
+NOTE: memory-bound, AI ~0.1 FLOP/byte (bandwidth-limited)
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    2417.656     2418.113     3.48       1.00       -          PASS
+threads_static       16         true     109.766      113.916      76.75      22.03      137.7      PASS
+threads_dynamic      16         true     445.354      448.601      18.92      5.43       33.9       PASS
+tiled                16         true     194.668      195.002      43.27      12.42      77.6       PASS
+simd                 16         false    113.831      113.879      74.00      21.24      -          PASS
+red_black            16         true     187.862      188.876      44.84      12.87      80.4       PASS
+CSV exported: results/jacobi2d_LARGE_20260615_050742.csv
