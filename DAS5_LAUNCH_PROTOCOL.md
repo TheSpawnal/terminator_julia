@@ -162,7 +162,7 @@ OpenMP EXTRALARGE:
     BENCHES="2mm 3mm cholesky correlation nussinov jacobi2d"
 
     for b in $BENCHES; do
-        sbatch --begin=22:00 \
+        sbatch --begin=05:22 \
                --job-name="scaleXL_omp_${b}" \
                --output="${OMP_DIR}/results/scaleXL_omp_${b}_%j.out" \
                --error="${OMP_DIR}/results/scaleXL_omp_${b}_%j.err" \
@@ -173,7 +173,7 @@ OpenMP EXTRALARGE:
                        module load prun; \
                        export OMP_PROC_BIND=close OMP_PLACES=cores OMP_DYNAMIC=false; \
                        cd ${OMP_DIR}; \
-                       for t in 4 8 16; do \
+                       for t in 2 4 8 16; do \
                            echo \"[\$(hostname)] ${b} EXTRALARGE t=\$t\"; \
                            OMP_NUM_THREADS=\$t ./benchmark_${b} --dataset EXTRALARGE \
                                --threads \$t --iterations 5 --warmup 2 --output csv; \
@@ -188,7 +188,7 @@ Julia EXTRALARGE (iterations trimmed to 3; the script's fixed 5 warmups are heav
     BENCHES="2mm 3mm cholesky correlation nussinov jacobi2d"
 
     for b in $BENCHES; do
-        sbatch --begin=22:00 \
+        sbatch --begin=05:22 \
                --job-name="scaleXL_jl_${b}" \
                --output="${JL_DIR}/results/scaleXL_jl_${b}_%j.out" \
                --error="${JL_DIR}/results/scaleXL_jl_${b}_%j.err" \
@@ -199,7 +199,7 @@ Julia EXTRALARGE (iterations trimmed to 3; the script's fixed 5 warmups are heav
                        module load prun julia/1.11.4; \
                        export OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1; \
                        cd ${JL_DIR}; \
-                       for t in 4 8 16; do \
+                       for t in 2 4 8 16; do \
                            echo \"[\$(hostname)] julia ${b} EXTRALARGE t=\$t\"; \
                            JULIA_NUM_THREADS=\$t julia -t \$t scripts/run_${b}.jl \
                                --dataset EXTRALARGE --iterations 3 --output csv; \
