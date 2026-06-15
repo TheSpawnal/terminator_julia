@@ -2,7 +2,6 @@
 """
 Julia PolyBench Visualization Suite v2.0
 NEON CYBERPUNK EDITION - Flashy Fluorescent Colors
-
 Designed for Julia vs OpenMP performance comparison research.
 Works EXCLUSIVELY with CSV data.
 
@@ -220,8 +219,20 @@ def load_multiple_csvs(filepaths):
     
     if not dfs:
         return None
-    
-    return pd.concat(dfs, ignore_index=True)
+
+    combined = pd.concat(dfs, ignore_index=True)
+
+    # Efficiency E=S/p is only meaningful for strategies that parallelize the
+    # SAME sequential arithmetic. blas/simd/tiled/colmajor change the algorithm
+    # or memory layout, so their speedup bundles an algorithmic/cache win and
+    # E=S/p spuriously exceeds 100%. Mask those so plots stop misleading.
+    ALGO_CHANGE = {'blas', 'simd', 'tiled', 'colmajor'}
+    for col in ('efficiency_pct', 'efficiency'):
+        if col in combined.columns:
+            mask = combined['strategy'].astype(str).str.lower().isin(ALGO_CHANGE)
+            combined.loc[mask, col] = float('nan')
+
+    return combined
 
 # =============================================================================
 # FILE NAMING
