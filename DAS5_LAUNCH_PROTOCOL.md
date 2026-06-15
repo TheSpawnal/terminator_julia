@@ -86,14 +86,14 @@ Six jobs, one benchmark each, each on its own exclusive node, each sweeping thre
         sbatch --job-name="scale_omp_${b}" \
                --output="${OMP_DIR}/results/scale_omp_${b}_%j.out" \
                --error="${OMP_DIR}/results/scale_omp_${b}_%j.err" \
-               --time=00:15:00 \
+               --time=00:45:00 \
                -N 1 --ntasks=1 --cpus-per-task=16 --exclusive \
                --partition=defq -C cpunode \
                --wrap=". /etc/bashrc; . /etc/profile.d/lmod.sh; \
                        module load prun; \
                        export OMP_PROC_BIND=close OMP_PLACES=cores OMP_DYNAMIC=false; \
                        cd ${OMP_DIR}; \
-                       for t in 4 8 16; do \
+                       for t in 2 4 8 16; do \
                            echo \"[\$(hostname)] ${b} LARGE t=\$t\"; \
                            OMP_NUM_THREADS=\$t ./benchmark_${b} --dataset LARGE \
                                --threads \$t --iterations 10 --warmup 3 --output csv; \
@@ -123,14 +123,14 @@ the kernel threads.
         sbatch --job-name="scale_jl_${b}" \
                --output="${JL_DIR}/results/scale_jl_${b}_%j.out" \
                --error="${JL_DIR}/results/scale_jl_${b}_%j.err" \
-               --time=00:15:00 \
+               --time=00:45:00 \
                -N 1 --ntasks=1 --cpus-per-task=16 --exclusive \
                --partition=defq -C cpunode \
                --wrap=". /etc/bashrc; . /etc/profile.d/lmod.sh; \
                        module load prun julia/1.11.4; \
                        export OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1; \
                        cd ${JL_DIR}; \
-                       for t in 4 8 16; do \
+                       for t in 2 4 8 16; do \
                            echo \"[\$(hostname)] julia ${b} LARGE t=\$t\"; \
                            JULIA_NUM_THREADS=\$t julia -t \$t scripts/run_${b}.jl \
                                --dataset LARGE --iterations 10 --output csv; \
