@@ -1,5 +1,0 @@
-benchmark,dataset,strategy,threads,min_ms,median_ms,mean_ms,std_ms,gflops,speedup,efficiency,verified
-nussinov,EXTRALARGE,sequential,8,88570.702,89141.196,88952.892,330.998,0.31,1.00,,PASS
-nussinov,EXTRALARGE,simd,8,100297.829,100880.825,100711.219,359.923,0.28,0.88,,PASS
-nussinov,EXTRALARGE,wavefront,8,18982.298,19409.263,19632.560,786.069,1.46,4.67,58.3,PASS
-nussinov,EXTRALARGE,tiled,8,20346.314,21324.754,22674.230,3222.071,1.36,4.35,54.4,PASS
