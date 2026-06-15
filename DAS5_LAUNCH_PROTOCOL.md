@@ -236,3 +236,98 @@ Plot and compare:
   batch queue. When a benchmark finishes, its node is released immediately.
 - `-C cpunode` pins every run to identical Haswell hardware - mandatory for valid
   cross-benchmark and cross-language comparison.
+
+
+
+One prerequisite: confirm the OpenMP binaries exist (ls -lh "$OMP_DIR"/benchmark_2mm). If not, cd "$OMP_DIR" && make das5 first. Julia needs no build.
+OpenMP — LARGE, scaling 4/8/16
+bashOMP_DIR="$HOME/terminator_julia/terminator_julia/openmp_polybench_refactored"
+mkdir -p "$OMP_DIR/results"
+BENCHES="2mm 3mm cholesky correlation nussinov jacobi2d"
+
+for b in $BENCHES; do
+    sbatch --job-name="scale_omp_${b}" \
+           --output="${OMP_DIR}/results/scale_omp_${b}_%j.out" \
+           --error="${OMP_DIR}/results/scale_omp_${b}_%j.err" \
+           --time=00:15:00 \
+           -N 1 --ntasks=1 --cpus-per-task=16 --exclusive \
+           --partition=defq -C cpunode \
+           --wrap=". /etc/bashrc; . /etc/profile.d/lmod.sh; \
+                   module load prun; \
+                   export OMP_PROC_BIND=close OMP_PLACES=cores OMP_DYNAMIC=false; \
+                   cd ${OMP_DIR}; \
+                   for t in 4 8 16; do \
+                       echo \"[\$(hostname)] ${b} LARGE t=\$t\"; \
+                       OMP_NUM_THREADS=\$t ./benchmark_${b} --dataset LARGE --threads \$t --iterations 10 --warmup 3 --output csv; \
+                   done"
+done
+squeue -u $USER
+Julia — LARGE, scaling 4/8/16
+bashJL_DIR="$HOME/terminator_julia/terminator_julia/julia_polybench_refactored"
+mkdir -p "$JL_DIR/results"
+BENCHES="2mm 3mm cholesky correlation nussinov jacobi2d"
+
+for b in $BENCHES; do
+    sbatch --job-name="scale_jl_${b}" \
+           --output="${JL_DIR}/results/scale_jl_${b}_%j.out" \
+           --error="${JL_DIR}/results/scale_jl_${b}_%j.err" \
+           --time=00:15:00 \
+           -N 1 --ntasks=1 --cpus-per-task=16 --exclusive \
+           --partition=defq -C cpunode \
+           --wrap=". /etc/bashrc; . /etc/profile.d/lmod.sh; \
+                   module load prun julia/1.11.4; \
+                   export OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1; \
+                   cd ${JL_DIR}; \
+                   for t in 4 8 16; do \
+                       echo \"[\$(hostname)] julia ${b} LARGE t=\$t\"; \
+                       JULIA_NUM_THREADS=\$t julia -t \$t scripts/run_${b}.jl --dataset LARGE --iterations 10 --output csv; \
+                   done"
+done
+squeue -u $USER
+EXTRALARGE — both languages, deferred to off-hours (no tmux)
+EXTRALARGE exceeds the 15-min daytime cap, so --begin=22:00 defers the start to tonight (use --begin=saturday for the weekend). The job waits in the queue, then runs unattended. Per DAS-5 policy, long off-hours jobs may need your supervisor's nod.
+OpenMP:
+bashOMP_DIR="$HOME/terminator_julia/terminator_julia/openmp_polybench_refactored"
+mkdir -p "$OMP_DIR/results"
+BENCHES="2mm 3mm cholesky correlation nussinov jacobi2d"
+
+for b in $BENCHES; do
+    sbatch --job-name="scaleXL_omp_${b}" \
+           --output="${OMP_DIR}/results/scaleXL_omp_${b}_%j.out" \
+           --error="${OMP_DIR}/results/scaleXL_omp_${b}_%j.err" \
+           --time=04:00:00 --begin=22:00 \
+           -N 1 --ntasks=1 --cpus-per-task=16 --exclusive \
+           --partition=defq -C cpunode \
+           --wrap=". /etc/bashrc; . /etc/profile.d/lmod.sh; \
+                   module load prun; \
+                   export OMP_PROC_BIND=close OMP_PLACES=cores OMP_DYNAMIC=false; \
+                   cd ${OMP_DIR}; \
+                   for t in 4 8 16; do \
+                       echo \"[\$(hostname)] ${b} EXTRALARGE t=\$t\"; \
+                       OMP_NUM_THREADS=\$t ./benchmark_${b} --dataset EXTRALARGE --threads \$t --iterations 5 --warmup 2 --output csv; \
+                   done"
+done
+squeue -u $USER
+Julia (iterations trimmed to 3; the script's fixed 5 warmups are heavy at XL):
+bashJL_DIR="$HOME/terminator_julia/terminator_julia/julia_polybench_refactored"
+mkdir -p "$JL_DIR/results"
+BENCHES="2mm 3mm cholesky correlation nussinov jacobi2d"
+
+for b in $BENCHES; do
+    sbatch --job-name="scaleXL_jl_${b}" \
+           --output="${JL_DIR}/results/scaleXL_jl_${b}_%j.out" \
+           --error="${JL_DIR}/results/scaleXL_jl_${b}_%j.err" \
+           --time=04:00:00 --begin=22:00 \
+           -N 1 --ntasks=1 --cpus-per-task=16 --exclusive \
+           --partition=defq -C cpunode \
+           --wrap=". /etc/bashrc; . /etc/profile.d/lmod.sh; \
+                   module load prun julia/1.11.4; \
+                   export OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1; \
+                   cd ${JL_DIR}; \
+                   for t in 4 8 16; do \
+                       echo \"[\$(hostname)] julia ${b} EXTRALARGE t=\$t\"; \
+                       JULIA_NUM_THREADS=\$t julia -t \$t scripts/run_${b}.jl --dataset EXTRALARGE --iterations 3 --output csv; \
+                   done"
+done
+squeue -u $USER
+After submitting, watch with squeue -u $USER; each job shows R when running, PD while queued (XL jobs sit PD with reason (BeginTime) until 22:00). Per-run console goes to results/scale_*_%j.out, errors to results/scale_*_%j.err — check the .err files first if a CSV is missing. The CSVs self-name with dataset and timestamp as before.
