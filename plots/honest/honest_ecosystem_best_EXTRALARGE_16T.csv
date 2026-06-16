@@ -1,0 +1,13 @@
+kernel,lang,ms,gflops,strategy
+2mm,julia,624.945,42.4,blas
+2mm,openmp,755.6927,35.07,tiled
+3mm,julia,992.074,43.55,blas
+3mm,openmp,1205.0758,35.85,tiled
+cholesky,julia,539.643,39.53,blas
+cholesky,openmp,584.8254,36.48,tasks
+correlation,julia,435.302,53.85,tiled
+correlation,openmp,851.3612,27.52,tiled
+jacobi2d,julia,9636.734,4.06,threads_static
+jacobi2d,openmp,4545.5242,17.22,threads_static
+nussinov,julia,22213.4,1.25,wavefront
+nussinov,openmp,2918.1817,9.5,tiled

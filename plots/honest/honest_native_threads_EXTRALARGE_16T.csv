@@ -1,0 +1,13 @@
+kernel,lang,ms,speedup,eff,strategy,native
+2mm,julia,3184.021,11.5,71.8,threads_static,True
+2mm,openmp,2753.3558,13.91,86.91,threads_static,True
+3mm,julia,3918.901,14.79,92.4,threads_static,True
+3mm,openmp,4151.964,14.23,88.95,threads_static,True
+cholesky,julia,3406.386,12.81,80.1,threads,True
+cholesky,openmp,844.5159,20.93,130.79,threads_static,True
+correlation,julia,1856.751,7.07,44.2,threads,True
+correlation,openmp,2787.2109,6.84,42.77,threads_static,True
+jacobi2d,julia,9636.734,2.53,15.8,threads_static,True
+jacobi2d,openmp,4545.5242,5.5,34.38,threads_static,True
+nussinov,julia,22213.4,4.0,25.0,wavefront,False
+nussinov,openmp,2918.1817,15.97,99.8,tiled,False
