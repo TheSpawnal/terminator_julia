@@ -1,0 +1,52 @@
+[node057] correlation LARGE t=2
+Correlation Benchmark
+Dataset: LARGE (M=1200, N=1400)
+Threads: 2 | FLOPS: 2.36e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           2          false    1835.899     1837.857     1.28       1.00       -          PASS
+threads_static       2          true     1373.895     1374.787     1.72       1.34       66.8       PASS
+threads_dynamic      2          true     918.064      918.995      2.57       2.00       100.0      PASS
+tiled                2          true     545.603      546.329      4.32       3.36       168.2      PASS
+tasks                2          true     544.855      545.221      4.33       3.37       168.5      PASS
+CSV exported: results/correlation_LARGE_20260615_233257.csv
+[node057] correlation LARGE t=4
+Correlation Benchmark
+Dataset: LARGE (M=1200, N=1400)
+Threads: 4 | FLOPS: 2.36e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    1833.426     1834.425     1.29       1.00       -          PASS
+threads_static       4          true     829.458      851.237      2.84       2.21       55.3       PASS
+threads_dynamic      4          true     506.368      506.710      4.66       3.62       90.5       PASS
+tiled                4          true     302.611      302.758      7.79       6.06       151.5      PASS
+tasks                4          true     300.599      300.743      7.85       6.10       152.5      PASS
+CSV exported: results/correlation_LARGE_20260615_233352.csv
+[node057] correlation LARGE t=8
+Correlation Benchmark
+Dataset: LARGE (M=1200, N=1400)
+Threads: 8 | FLOPS: 2.36e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    1835.862     1836.633     1.28       1.00       -          PASS
+threads_static       8          true     479.130      490.078      4.92       3.83       47.9       PASS
+threads_dynamic      8          true     284.401      284.531      8.29       6.46       80.7       PASS
+tiled                8          true     171.265      171.311      13.77      10.72      134.0      PASS
+tasks                8          true     167.825      167.841      14.05      10.94      136.7      PASS
+CSV exported: results/correlation_LARGE_20260615_233436.csv
+[node057] correlation LARGE t=16
+Correlation Benchmark
+Dataset: LARGE (M=1200, N=1400)
+Threads: 16 | FLOPS: 2.36e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    1832.714     1833.788     1.29       1.00       -          PASS
+threads_static       16         true     262.653      263.227      8.98       6.98       43.6       PASS
+threads_dynamic      16         true     145.364      145.422      16.23      12.61      78.8       PASS
+tiled                16         true     92.910       93.589       25.39      19.73      123.3      PASS
+tasks                16         true     85.159       85.205       27.70      21.52      134.5      PASS
+CSV exported: results/correlation_LARGE_20260615_233512.csv

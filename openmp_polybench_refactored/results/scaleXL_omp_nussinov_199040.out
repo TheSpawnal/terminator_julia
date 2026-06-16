@@ -1,0 +1,56 @@
+[node067] nussinov EXTRALARGE t=2
+Nussinov Benchmark (RNA Folding)
+Dataset: EXTRALARGE (N=5500)
+Threads: 2 | FLOPS: 2.77e+10
+NOTE: Dependency-limited benchmark, expect modest speedups
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           2          false    46556.968    46872.083    0.60       1.00       -          PASS
+wavefront            2          true     30226.046    30874.208    0.92       1.54       77.0       PASS
+tiled                2          true     14871.440    14876.275    1.86       3.13       156.5      PASS
+tasks                2          true     33126.539    34391.860    0.84       1.41       70.3       PASS
+simd                 2          false    43710.743    43976.172    0.63       1.07       -          PASS
+CSV exported: results/nussinov_EXTRALARGE_20260616_002411.csv
+[node067] nussinov EXTRALARGE t=4
+Nussinov Benchmark (RNA Folding)
+Dataset: EXTRALARGE (N=5500)
+Threads: 4 | FLOPS: 2.77e+10
+NOTE: Dependency-limited benchmark, expect modest speedups
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    46951.082    46952.483    0.59       1.00       -          PASS
+wavefront            4          true     16495.326    16512.716    1.68       2.85       71.2       PASS
+tiled                4          true     8383.770     8395.725     3.31       5.60       140.0      PASS
+tasks                4          true     21031.711    21082.351    1.32       2.23       55.8       PASS
+simd                 4          false    43815.204    44048.148    0.63       1.07       -          PASS
+CSV exported: results/nussinov_EXTRALARGE_20260616_004315.csv
+[node067] nussinov EXTRALARGE t=8
+Nussinov Benchmark (RNA Folding)
+Dataset: EXTRALARGE (N=5500)
+Threads: 8 | FLOPS: 2.77e+10
+NOTE: Dependency-limited benchmark, expect modest speedups
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    46576.018    46948.897    0.60       1.00       -          PASS
+wavefront            8          true     9229.706     9382.143     3.00       5.05       63.1       PASS
+tiled                8          true     4973.118     4977.849     5.58       9.37       117.1      PASS
+tasks                8          true     15617.332    15700.112    1.78       2.98       37.3       PASS
+simd                 8          false    43982.775    44028.633    0.63       1.06       -          PASS
+CSV exported: results/nussinov_EXTRALARGE_20260616_010011.csv
+[node067] nussinov EXTRALARGE t=16
+Nussinov Benchmark (RNA Folding)
+Dataset: EXTRALARGE (N=5500)
+Threads: 16 | FLOPS: 2.77e+10
+NOTE: Dependency-limited benchmark, expect modest speedups
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    46599.571    47008.534    0.60       1.00       -          PASS
+wavefront            16         true     4713.269     5182.159     5.88       9.89       61.8       PASS
+tiled                16         true     2918.182     2930.123     9.50       15.97      99.8       PASS
+tasks                16         true     13493.835    22773.501    2.05       3.45       21.6       PASS
+simd                 16         false    43680.555    43920.604    0.63       1.07       -          PASS
+CSV exported: results/nussinov_EXTRALARGE_20260616_011650.csv

@@ -1,0 +1,100 @@
+[node045] julia jacobi2d LARGE t=2
+======================================================================
+JACOBI-2D STENCIL BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 2
+BLAS threads: 1
+CPU threads: 32
+Dataset: LARGE (n=1300, tsteps=500)
+Memory: 25.79 MB
+NOTE: Memory-bound (arithmetic intensity ~0.83 FLOPs/byte)
+
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |   2423.297 |   2446.282 |   2446.091 |     1.74 |     1.00x |   N/A
+threads_static   |   1274.046 |   1282.974 |   1284.297 |     3.31 |     1.90x |   95.1
+tiled            |   3930.078 |   3951.275 |   3952.684 |     1.07 |     0.62x |   30.8
+red_black        |   2534.011 |   2725.840 |   2693.831 |     1.66 |     0.96x |   47.8
+------------------------------------------------------------------------------------------
+
+Memory Bandwidth:
+  Estimated: 31.74 GB/s
+Results exported to: results/jacobi2d_LARGE_20260615_233508.csv
+[node045] julia jacobi2d LARGE t=4
+======================================================================
+JACOBI-2D STENCIL BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 4
+BLAS threads: 1
+CPU threads: 32
+Dataset: LARGE (n=1300, tsteps=500)
+Memory: 25.79 MB
+NOTE: Memory-bound (arithmetic intensity ~0.83 FLOPs/byte)
+
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |   2257.669 |   2441.097 |   2411.510 |     1.87 |     1.00x |   N/A
+threads_static   |    368.894 |    371.701 |    385.865 |    11.42 |     6.12x |  153.0
+tiled            |    758.476 |    787.446 |    789.490 |     5.55 |     2.98x |   74.4
+red_black        |    873.753 |    920.047 |    911.388 |     4.82 |     2.58x |   64.6
+------------------------------------------------------------------------------------------
+
+Memory Bandwidth:
+  Estimated: 109.61 GB/s
+Results exported to: results/jacobi2d_LARGE_20260615_233631.csv
+[node045] julia jacobi2d LARGE t=8
+======================================================================
+JACOBI-2D STENCIL BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 8
+BLAS threads: 1
+CPU threads: 32
+Dataset: LARGE (n=1300, tsteps=500)
+Memory: 25.79 MB
+NOTE: Memory-bound (arithmetic intensity ~0.83 FLOPs/byte)
+
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |   2442.745 |   2447.882 |   2448.919 |     1.72 |     1.00x |   N/A
+threads_static   |    204.806 |    208.060 |    210.757 |    20.57 |    11.93x |  149.1
+tiled            |    466.316 |    472.417 |    479.594 |     9.03 |     5.24x |   65.5
+red_black        |    505.833 |    509.540 |    516.444 |     8.33 |     4.83x |   60.4
+------------------------------------------------------------------------------------------
+
+Memory Bandwidth:
+  Estimated: 197.43 GB/s
+Results exported to: results/jacobi2d_LARGE_20260615_233740.csv
+[node045] julia jacobi2d LARGE t=16
+======================================================================
+JACOBI-2D STENCIL BENCHMARK
+======================================================================
+Julia version: 1.11.4
+Threads: 16
+BLAS threads: 1
+CPU threads: 32
+Dataset: LARGE (n=1300, tsteps=500)
+Memory: 25.79 MB
+NOTE: Memory-bound (arithmetic intensity ~0.83 FLOPs/byte)
+
+
+------------------------------------------------------------------------------------------
+Strategy         |    Min(ms) | Median(ms) |   Mean(ms) |  GFLOP/s |  Speedup | Eff(%)
+------------------------------------------------------------------------------------------
+sequential       |   2434.292 |   2455.007 |   2455.833 |     1.73 |     1.00x |   N/A
+threads_static   |    129.547 |    130.695 |    132.634 |    32.51 |    18.79x |  117.4
+tiled            |    269.412 |    271.667 |    273.461 |    15.63 |     9.04x |   56.5
+red_black        |    303.022 |    311.723 |    313.988 |    13.90 |     8.03x |   50.2
+------------------------------------------------------------------------------------------
+
+Memory Bandwidth:
+  Estimated: 312.13 GB/s
+Results exported to: results/jacobi2d_LARGE_20260615_233841.csv

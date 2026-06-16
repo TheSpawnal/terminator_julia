@@ -1,0 +1,64 @@
+[node027] 2mm EXTRALARGE t=2
+2MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2200, NL=2400)
+Threads: 2 | Iterations: 5 | Warmup: 2
+FLOPS: 2.65e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           2          false    38422.303    38565.532    0.69       1.00       -          PASS
+threads_static       2          true     18300.174    18423.552    1.45       2.10       105.0      PASS
+threads_dynamic      2          true     18598.009    18811.797    1.42       2.07       103.3      PASS
+tiled                2          true     4837.518     4886.513     5.48       7.94       397.1      PASS
+simd                 2          false    33683.076    33916.978    0.79       1.14       -          PASS
+tasks                2          true     18291.953    18402.756    1.45       2.10       105.0      PASS
+collapsed            2          true     18080.220    18310.756    1.47       2.13       106.3      PASS
+CSV exported: results/2mm_EXTRALARGE_20260616_002137.csv
+[node027] 2mm EXTRALARGE t=4
+2MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2200, NL=2400)
+Threads: 4 | Iterations: 5 | Warmup: 2
+FLOPS: 2.65e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    38291.806    38519.670    0.69       1.00       -          PASS
+threads_static       4          true     9317.466     9563.992     2.84       4.11       102.7      PASS
+threads_dynamic      4          true     9310.081     9561.998     2.85       4.11       102.8      PASS
+tiled                4          true     2611.355     2699.733     10.15      14.66      366.6      PASS
+simd                 4          false    33877.400    33883.683    0.78       1.13       -          PASS
+tasks                4          true     9240.783     9334.890     2.87       4.14       103.6      PASS
+collapsed            4          true     9304.842     9316.665     2.85       4.12       102.9      PASS
+CSV exported: results/2mm_EXTRALARGE_20260616_003725.csv
+[node027] 2mm EXTRALARGE t=8
+2MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2200, NL=2400)
+Threads: 8 | Iterations: 5 | Warmup: 2
+FLOPS: 2.65e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    38100.037    38415.209    0.70       1.00       -          PASS
+threads_static       8          true     5103.419     5110.267     5.19       7.47       93.3       PASS
+threads_dynamic      8          true     5286.633     5289.449     5.01       7.21       90.1       PASS
+tiled                8          true     1459.124     1461.307     18.16      26.11      326.4      PASS
+simd                 8          false    33775.064    33777.971    0.78       1.13       -          PASS
+tasks                8          true     5099.699     5106.899     5.20       7.47       93.4       PASS
+collapsed            8          true     5107.966     5111.167     5.19       7.46       93.2       PASS
+CSV exported: results/2mm_EXTRALARGE_20260616_005043.csv
+[node027] 2mm EXTRALARGE t=16
+2MM Benchmark
+Dataset: EXTRALARGE (NI=1600, NJ=1800, NK=2200, NL=2400)
+Threads: 16 | Iterations: 5 | Warmup: 2
+FLOPS: 2.65e+10
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    38288.066    38516.881    0.69       1.00       -          PASS
+threads_static       16         true     2753.356     2783.998     9.62       13.91      86.9       PASS
+threads_dynamic      16         true     2796.680     2806.294     9.48       13.69      85.6       PASS
+tiled                16         true     755.693      762.735      35.07      50.67      316.7      PASS
+simd                 16         false    35330.944    36087.088    0.75       1.08       -          PASS
+tasks                16         true     2729.224     2758.318     9.71       14.03      87.7       PASS
+collapsed            16         true     2753.394     2768.338     9.62       13.91      86.9       PASS
+CSV exported: results/2mm_EXTRALARGE_20260616_010259.csv

@@ -1,0 +1,56 @@
+[node056] cholesky LARGE t=2
+Cholesky Decomposition Benchmark
+Dataset: LARGE (N=2000)
+Threads: 2 | FLOPS: 2.67e+09
+NOTE: Dependency-limited benchmark, row-level parallelism only
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           2          false    2065.234     2066.542     1.29       1.00       -          PASS
+threads_static       2          true     622.787      624.781      4.28       3.32       165.8      PASS
+tiled                2          true     529.089      536.832      5.04       3.90       195.2      PASS
+simd                 2          false    2072.664     2074.596     1.29       1.00       -          PASS
+tasks                2          true     431.507      433.644      6.18       4.79       239.3      PASS
+CSV exported: results/cholesky_LARGE_20260615_233755.csv
+[node056] cholesky LARGE t=4
+Cholesky Decomposition Benchmark
+Dataset: LARGE (N=2000)
+Threads: 4 | FLOPS: 2.67e+09
+NOTE: Dependency-limited benchmark, row-level parallelism only
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    2064.140     2065.632     1.29       1.00       -          PASS
+threads_static       4          true     347.120      347.264      7.68       5.95       148.7      PASS
+tiled                4          true     286.873      292.184      9.30       7.20       179.9      PASS
+simd                 4          false    2070.733     2072.974     1.29       1.00       -          PASS
+tasks                4          true     237.010      238.572      11.25      8.71       217.7      PASS
+CSV exported: results/cholesky_LARGE_20260615_234358.csv
+[node056] cholesky LARGE t=8
+Cholesky Decomposition Benchmark
+Dataset: LARGE (N=2000)
+Threads: 8 | FLOPS: 2.67e+09
+NOTE: Dependency-limited benchmark, row-level parallelism only
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    2064.578     2064.737     1.29       1.00       -          PASS
+threads_static       8          true     197.211      197.310      13.52      10.47      130.9      PASS
+tiled                8          true     163.210      164.258      16.34      12.65      158.1      PASS
+simd                 8          false    2070.813     2073.104     1.29       1.00       -          PASS
+tasks                8          true     132.222      132.498      20.17      15.61      195.2      PASS
+CSV exported: results/cholesky_LARGE_20260615_234957.csv
+[node056] cholesky LARGE t=16
+Cholesky Decomposition Benchmark
+Dataset: LARGE (N=2000)
+Threads: 16 | FLOPS: 2.67e+09
+NOTE: Dependency-limited benchmark, row-level parallelism only
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    2066.097     2067.928     1.29       1.00       -          PASS
+threads_static       16         true     115.091      115.274      23.17      17.95      112.2      PASS
+tiled                16         true     95.879       96.350       27.81      21.55      134.7      PASS
+simd                 16         false    2074.261     2077.056     1.29       1.00       -          PASS
+tasks                16         true     73.673       74.674       36.20      28.04      175.3      PASS
+CSV exported: results/cholesky_LARGE_20260615_235552.csv

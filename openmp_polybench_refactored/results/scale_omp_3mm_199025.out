@@ -1,0 +1,52 @@
+[node065] 3mm LARGE t=2
+3MM Benchmark
+Dataset: LARGE (NI=800, NJ=900, NK=1000, NL=1100, NM=1200)
+Threads: 2 | FLOPS: 5.40e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           2          false    4199.856     4201.718     1.29       1.00       -          PASS
+threads_static       2          true     2103.517     2104.289     2.57       2.00       99.8       PASS
+threads_dynamic      2          true     2105.654     2106.525     2.56       1.99       99.7       PASS
+tiled                2          true     934.191      935.150      5.78       4.50       224.8      PASS
+tasks                2          true     1431.814     1433.342     3.77       2.93       146.7      PASS
+CSV exported: results/3mm_LARGE_20260615_233417.csv
+[node065] 3mm LARGE t=4
+3MM Benchmark
+Dataset: LARGE (NI=800, NJ=900, NK=1000, NL=1100, NM=1200)
+Threads: 4 | FLOPS: 5.40e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           4          false    4208.169     4208.923     1.28       1.00       -          PASS
+threads_static       4          true     1202.887     1203.734     4.49       3.50       87.5       PASS
+threads_dynamic      4          true     1227.743     1229.235     4.40       3.43       85.7       PASS
+tiled                4          true     532.814      533.421      10.13      7.90       197.5      PASS
+tasks                4          true     803.835      805.066      6.72       5.24       130.9      PASS
+CSV exported: results/3mm_LARGE_20260615_233613.csv
+[node065] 3mm LARGE t=8
+3MM Benchmark
+Dataset: LARGE (NI=800, NJ=900, NK=1000, NL=1100, NM=1200)
+Threads: 8 | FLOPS: 5.40e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           8          false    4207.960     4208.533     1.28       1.00       -          PASS
+threads_static       8          true     651.767      652.702      8.29       6.46       80.7       PASS
+threads_dynamic      8          true     690.819      691.902      7.82       6.09       76.1       PASS
+tiled                8          true     289.881      289.943      18.63      14.52      181.5      PASS
+tasks                8          true     447.498      448.475      12.07      9.40       117.5      PASS
+CSV exported: results/3mm_LARGE_20260615_233745.csv
+[node065] 3mm LARGE t=16
+3MM Benchmark
+Dataset: LARGE (NI=800, NJ=900, NK=1000, NL=1100, NM=1200)
+Threads: 16 | FLOPS: 5.40e+09
+
+Strategy             Threads    Parallel Min(ms)      Median(ms)   GFLOP/s    Speedup    Eff(%)     Verified
+--------------------------------------------------------------------------------
+sequential           16         false    4198.775     4199.657     1.29       1.00       -          PASS
+threads_static       16         true     329.343      329.792      16.40      12.75      79.7       PASS
+threads_dynamic      16         true     386.973      387.645      13.95      10.85      67.8       PASS
+tiled                16         true     146.319      146.438      36.91      28.70      179.4      PASS
+tasks                16         true     229.616      230.273      23.52      18.29      114.3      PASS
+CSV exported: results/3mm_LARGE_20260615_233904.csv
